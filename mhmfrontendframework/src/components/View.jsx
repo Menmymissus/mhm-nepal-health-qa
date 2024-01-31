@@ -1,13 +1,46 @@
-import React from 'react'
+// import React from 'react'
+
+// const View = () => {
+//   return (
+//     <main className="absolute top-0 left-0 h-full w-full bg-orange-100 flex items-center justify-center">
+      
+//     </main>
+//   )
+// }
+
+// export default View
+
+
+import React, { useState } from 'react';
 
 const View = () => {
-  return (
-    <main className="absolute top-0 left-0 h-full w-full bg-orange-100 flex items-center justify-center">
-      <div className=' '>
-     <div>View</div>
-    </div>
-    </main>
-  )
-}
+    const [inputText, setInputText] = useState('');
+    const [generatedText, setGeneratedText] = useState('');
 
-export default View
+    const generateText = async () => {
+        try {
+            const response = await fetch(`http://localhost:8000/api/generate-text?input_text=${encodeURIComponent(inputText)}`);
+            const data = await response.json();
+            setGeneratedText(data.generated_text);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    return (
+      <>
+        <div className="absolute top-0 left-0 h-full w-full bg-orange-100 flex flex-col items-center justify-center">
+        
+            <textarea className="peer h-[200] min-h-[100px] w-[50%] resize-none rounded-[7px] border bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline transition-all focus:border-2 focus:border-gray-900  focus:outline-0 disabled:resize-none"
+      placeholder=" " value={inputText} onChange={(e) => setInputText(e.target.value)} />
+            <button className='mt-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded' onClick={generateText}>Ask Question</button>
+            <div className='mt-5'>
+                <strong>Answer:</strong> {generatedText}
+            </div>
+        
+        </div>
+      </>
+    );
+};
+
+export default View;
