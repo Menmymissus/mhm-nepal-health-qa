@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { signupFields } from "../constants/formField"
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import FormAction from "./FormAction";
 import Input from "./Input";
@@ -19,6 +20,8 @@ export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
   const [email, setEmail]= useState();
   const [currentUser, setCurrentUser] = useState();
+  const navigate = useNavigate()
+
   // const history = useHistory();
 
   useEffect(() => {
@@ -50,11 +53,9 @@ export default function Signup(){
       }
     ).then(function (res) {
       // Registration successful
-      setSignupState('success');
-      // history.push('/login')
+        navigate('/login')
     }).catch(function (error) {
       // Registration failed
-      setSignupState('error');
     });
   }
   if (currentUser) {
