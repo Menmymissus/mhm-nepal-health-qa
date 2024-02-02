@@ -29,7 +29,7 @@ export default function Login(){
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-      client.get("/api/user")
+      client.get("/api/users/user")
       .then(function(res) {
         setCurrentUser(true);
         const userData = res.data.user;
@@ -65,7 +65,7 @@ export default function Login(){
     function submitLogin(e) {
         e.preventDefault();
         client.post(
-          "/api/login",
+          "/api/users/login",
           {
             email:loginState['email-address'],
             password:loginState['password']
@@ -79,7 +79,7 @@ export default function Login(){
       function submitLogout(e) {
         e.preventDefault();
         client.post(
-          "/api/logout",
+          "/api/users/logout",
           {withCredentials: true}
         ).then(function(res) {
           setCurrentUser(false);

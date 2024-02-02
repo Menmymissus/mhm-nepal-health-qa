@@ -25,7 +25,7 @@ export default function Signup(){
   // const history = useHistory();
 
   useEffect(() => {
-    client.get("/api/user")
+    client.get("/api/users/user")
     .then(function(res) {
       setCurrentUser(true);
       setEmail(res.data.user.email);
@@ -45,7 +45,7 @@ export default function Signup(){
 
     e.preventDefault();
     client.post(
-      "/api/register",
+      "/api/users/register",
       {
         email:signupState['email-address'],
         username:signupState['username'],
