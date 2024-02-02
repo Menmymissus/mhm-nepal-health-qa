@@ -106,6 +106,7 @@ export default function Login(){
                 paragraph="Don't have an account yet? "
                 linkName="Signup"
                 linkUrl="/signup"
+                className="absolute top-0 left-0 h-screen w-screen bg-orange-100"
                 />
         <form className="mt-8 space-y-6" onSubmit={e => submitLogin(e)}>
         <div className="-space-y-px">
