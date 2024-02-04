@@ -81,6 +81,7 @@ export default function Signup(){
               paragraph="Already have an account? "
               linkName="Login"
               linkUrl="/login"
+              className="absolute top-0 left-0 h-screen w-screen bg-orange-100"
             />
         <form className="mt-8 space-y-6" onSubmit={e => submitRegistration(e)}>
         <div className="">

@@ -7,6 +7,6 @@ from django.http import JsonResponse
 # Create your views here.
 def generate_text(request):
     input_text = request.GET.get('input_text','')
-    pipe = pipeline("text2text-generation", model="Chhabi/mt5-small-finetuned-Nepali-Health-50k-2")
+    pipe = pipeline("text2text-generation", model="Chhabi/mt5-small-finetuned-Nepali-Health-50k-2", max_new_tokens=128)
     result = pipe(input_text)
     return JsonResponse({'generated_text': result[0]['generated_text']})

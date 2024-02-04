@@ -1,5 +1,6 @@
 import React from "react";
 import {useTypingEffect} from "./customhooks/typingeffect";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -14,6 +15,11 @@ const Home = () => {
           </div>
           <div className="text-center font-spaceGrotesk">{subtext}</div>
           
+        </div>
+        <div className="flex justify-center mt-10">
+        <Link to="/login">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-20 flex flex-col justify-center">Get started</button>
+        </Link>
         </div>
       </main>
     </>

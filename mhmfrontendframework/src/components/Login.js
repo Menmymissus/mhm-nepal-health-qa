@@ -5,6 +5,7 @@ import { loginFields } from "../constants/formField";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
+import {useNavigate} from 'react-router-dom';
 
 const fields=loginFields;
 let fieldsState = {};
@@ -27,6 +28,7 @@ export default function Login(){
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
       client.get("/api/users/user")
@@ -72,7 +74,7 @@ export default function Login(){
           }
         ).then(function(res) {
           setCurrentUser(true);
-          
+          navigate('/dashboard')
         });
       }
 
@@ -106,8 +108,9 @@ export default function Login(){
                 paragraph="Don't have an account yet? "
                 linkName="Signup"
                 linkUrl="/signup"
+                className="absolute top-0 left-0 h-screen w-screen bg-orange-100"
                 />
-        <form className="mt-8 space-y-6" onSubmit={e => submitLogin(e)}>
+        <form className="mt-8 space-y-6 " onSubmit={e => submitLogin(e)}>
         <div className="-space-y-px">
             {
                 fields.map(field=>
