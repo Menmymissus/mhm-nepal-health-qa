@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import View from "./components/View";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/signup" element={<Signup />} />
+            <Route path="/dashboard" element={<Dashboard/>} />
           </Routes>
         </div>
       </div>

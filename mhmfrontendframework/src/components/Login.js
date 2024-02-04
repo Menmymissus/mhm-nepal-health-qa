@@ -74,7 +74,7 @@ export default function Login(){
           }
         ).then(function(res) {
           setCurrentUser(true);
-          navigate('/view')
+          navigate('/dashboard')
         });
       }
 
