@@ -19,7 +19,7 @@ const View = () => {
 
     const generateText = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/generate-text?input_text=${encodeURIComponent(inputText)}`);
+            const response = await fetch(`http://localhost:8000/api/inference/generate-text?input_text=${encodeURIComponent(inputText)}`);
             const data = await response.json();
             setGeneratedText(data.generated_text);
         } catch (error) {
