@@ -25,7 +25,7 @@ function handleClick(){
       <h1 className='absolute text-4xl flex mt-[-8px] font-bold font-spaceGrotesk ml-3'>MHM</h1>
       <ul className='flex justify-end space-x-4 font-spaceGrotesk md:space-x-7 mr-10'>
         <Link to="/">Home</Link>
-        <Link to="/view">View</Link>
+        <Link to="/user/view">View</Link>
         <Link to="/about">About Us</Link>
         <Link to="/contact">Contact</Link>
         <Logout />

@@ -11,15 +11,29 @@
 // export default View
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+
 
 const View = () => {
     const [inputText, setInputText] = useState('');
     const [generatedText, setGeneratedText] = useState('');
 
+
+    const [userEmail, setUserEmail] = useState(null);
+
+  useEffect(() => {
+    let userDetails = localStorage.getItem("authSession");
+    userDetails = JSON.parse(userDetails);
+
+    const email = userDetails ? userDetails.email : null;
+    setUserEmail(email);
+
+    console.log("email =", email);
+  }, []); 
     const generateText = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/inference/generate-text?input_text=${encodeURIComponent(inputText)}`);
+            const response = await fetch(`http://localhost:8000/api/inference/generate-text?input_text=${encodeURIComponent(inputText)}&email=${userEmail}`);
             const data = await response.json();
             setGeneratedText(data.generated_text);
         } catch (error) {

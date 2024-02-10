@@ -2,11 +2,19 @@ import {useState, useEffect} from 'react';
 
 const Dashboard = () => {
   const[generatedTexts, setGeneratedTexts]=useState([]);
+  const [userEmail, setUserEmail] = useState(null);
+
 
   useEffect(() => {
+    let userDetails = localStorage.getItem("authSession");
+    userDetails = JSON.parse(userDetails);
+
+    const email = userDetails ? userDetails.email : null;
+    setUserEmail(email);
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/dashboard/get-generated-texts/');
+
+        const response = await fetch(`http://localhost:8000/api/dashboard/get-generated-texts/?email=${email}`);
         const data = await response.json();
         setGeneratedTexts(data.generated_texts);
       } catch (error) {

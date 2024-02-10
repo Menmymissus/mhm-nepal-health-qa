@@ -31,7 +31,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/view" element={<View />} />
 
             <Route path="/login" element={<LoginPage />} />
 
@@ -39,6 +38,7 @@ function App() {
 
             <Route path="/user" element={<PrivateRoutes />} >
 
+                    <Route path="view" element={<View />} />
                     <Route path="dashboard" element={<Dashboard/>} />
                     <Route path="logout" element={<Logout />} />
 
