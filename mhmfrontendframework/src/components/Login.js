@@ -6,6 +6,8 @@ import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
 import {useNavigate} from 'react-router-dom';
+import { clearSession, setSession } from './authUtils';
+
 
 const fields=loginFields;
 let fieldsState = {};
@@ -28,6 +30,8 @@ export default function Login(){
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessages, setErrorMessages] = useState([]);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -42,8 +46,8 @@ export default function Login(){
         // const { email, username } = userData;
 
         // Do something with the username and password
-        console.log('Email:', email);
-        console.log('Username:', userName);
+        // console.log('Email:', email);
+        // console.log('Username:', userName);
       })
       .catch(function(error) {
         setCurrentUser(false);
@@ -74,7 +78,30 @@ export default function Login(){
           }
         ).then(function(res) {
           setCurrentUser(true);
-          navigate('/dashboard')
+          const userData = res.data;
+
+        // Set session data upon successful login
+          setSession(userData);
+
+          navigate('/user/dashboard')
+        }).catch(function (error) {
+          if (error.response) {
+            if (error.response.data && error.response.data.error) {
+              setErrorMessages(Array.isArray(error.response.data.error) ? error.response.data.error : [error.response.data.error]);
+    
+            }
+            if (error.response.status === 400 && error.response.data.errors) {
+    
+              console.error('Custom validation errors:', error.response.data.errors);
+      
+              // setRegistrationErrors(error.response.data.errors);
+            }
+          } else if (error.request) {
+    
+            console.error('No response received from the server');
+          } else {
+            console.error('Error during request setup:', error.message);
+          }
         });
       }
 
@@ -84,6 +111,7 @@ export default function Login(){
           "/api/users/logout",
           {withCredentials: true}
         ).then(function(res) {
+          clearSession()
           setCurrentUser(false);
         });
       }
@@ -101,8 +129,28 @@ export default function Login(){
             </>
         )
     }
+    
     return(
       <>
+      {/* {successMsgFlag > 0 && (
+        <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <span class="font-medium">Success!</span> Your account has been created. Please log in to continue!
+      </div>
+      )} */}
+      {errorMessages.length > 0 && (
+        <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" 
+        role="alert">
+          <ul>
+            {errorMessages.map((errorMessage, index) => (
+              <li key={index} 
+              >
+                
+                
+                {errorMessage}</li>
+            ))}
+          </ul>
+        </div>
+      )}
           <Header
                 heading="Login to your account"
                 paragraph="Don't have an account yet? "

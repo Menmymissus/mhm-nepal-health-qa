@@ -9,6 +9,9 @@ import View from "./components/View";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
+import PrivateRoutes from "./components/PrivateRoutes";
+import Logout from "./components/Logout";
+
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -33,7 +36,13 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard/>} />
+
+            <Route path="/user" element={<PrivateRoutes />} >
+
+                    <Route path="dashboard" element={<Dashboard/>} />
+                    <Route path="logout" element={<Logout />} />
+
+            </Route>
           </Routes>
         </div>
       </div>

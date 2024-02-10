@@ -29,7 +29,7 @@ class AppUserManager(BaseUserManager):
 class AppUser(AbstractBaseUser, PermissionsMixin):
 	user_id = models.AutoField(primary_key=True)
 	email = models.EmailField(max_length=50, unique=True)
-	username = models.CharField(max_length=50)
+	username = models.CharField(max_length=50, unique=True)
 	is_active = models.BooleanField(default=True)  # You also need to include is_active
 	is_staff = models.BooleanField(default=False)  # Add this line for is_staff
 	USERNAME_FIELD = 'email'

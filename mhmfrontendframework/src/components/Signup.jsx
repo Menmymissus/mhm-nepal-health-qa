@@ -20,6 +20,10 @@ export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
   const [email, setEmail]= useState();
   const [currentUser, setCurrentUser] = useState();
+  const [errorMessages, setErrorMessages] = useState([]);
+  const [successMessage, setSuccessMessage] = useState('');
+
+
   const navigate = useNavigate()
 
   // const history = useHistory();
@@ -49,13 +53,34 @@ export default function Signup(){
       {
         email:signupState['email-address'],
         username:signupState['username'],
-        password:signupState['password']
+        password:signupState['password'],
+        password2:signupState['confirm-password']
       }
     ).then(function (res) {
       // Registration successful
+        localStorage.setItem('successMessage', 'Account created successfully. You can now log in.');
+
+        setErrorMessages([]);
         navigate('/login')
     }).catch(function (error) {
       // Registration failed
+      if (error.response) {
+        if (error.response.data && error.response.data.error) {
+          setErrorMessages(Array.isArray(error.response.data.error) ? error.response.data.error : [error.response.data.error]);
+
+        }
+        if (error.response.status === 400 && error.response.data.errors) {
+
+          console.error('Custom validation errors:', error.response.data.errors);
+  
+          // setRegistrationErrors(error.response.data.errors);
+        }
+      } else if (error.request) {
+
+        console.error('No response received from the server');
+      } else {
+        console.error('Error during request setup:', error.message);
+      }
     });
   }
   if (currentUser) {
@@ -76,6 +101,17 @@ export default function Signup(){
 
     return(
       <>
+      {errorMessages.length > 0 && (
+        <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" 
+        role="alert">
+          <ul>
+            {errorMessages.map((errorMessage, index) => (
+              <li key={index}>{errorMessage}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+  
       <Header
               heading="Signup to create an account"
               paragraph="Already have an account? "
