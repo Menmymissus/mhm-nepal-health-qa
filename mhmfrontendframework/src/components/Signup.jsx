@@ -5,6 +5,7 @@ import axios from 'axios';
 import FormAction from "./FormAction";
 import Input from "./Input";
 import Header from "./Header";
+import background from '../assets/background.png';
 // import { useHistory } from 'react-router-dom'; 
 
 
@@ -100,7 +101,7 @@ export default function Signup(){
  
 
     return(
-      <>
+      <main className="absolute top-0 left-0 h-screen w-screen bg-cover flex items-center justify-center flex-col" style={{backgroundImage:`url(${background})`}}>
       {errorMessages.length > 0 && (
         <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" 
         role="alert">
@@ -144,6 +145,6 @@ export default function Signup(){
          
 
       </form>
-      </>
+      </main>
     )
 }

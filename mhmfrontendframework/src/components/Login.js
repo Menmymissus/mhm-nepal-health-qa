@@ -7,6 +7,7 @@ import FormExtra from "./FormExtra";
 import Input from "./Input";
 import {useNavigate} from 'react-router-dom';
 import { clearSession, setSession } from './authUtils';
+import background from '../assets/background.png';
 
 
 const fields=loginFields;
@@ -131,7 +132,7 @@ export default function Login(){
     }
     
     return(
-      <>
+      <main className="absolute top-0 left-0 h-screen w-screen bg-cover flex items-center justify-center flex-col" style={{backgroundImage:`url(${background})`}}>
       {/* {successMsgFlag > 0 && (
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
         <span class="font-medium">Success!</span> Your account has been created. Please log in to continue!
@@ -151,12 +152,15 @@ export default function Login(){
           </ul>
         </div>
       )}
+      <div className=" text-slate-300">
           <Header
                 heading="Login to your account"
                 paragraph="Don't have an account yet? "
                 linkName="Signup"
                 linkUrl="/signup"
-                className="absolute top-0 left-0 h-screen w-screen bg-orange-100"
+               
+                
+                
                 />
         <form className="mt-8 space-y-6 " onSubmit={e => submitLogin(e)}>
         <div className="-space-y-px">
@@ -173,6 +177,7 @@ export default function Login(){
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
+                            
                     />
                 
                 )
@@ -183,6 +188,7 @@ export default function Login(){
         <FormAction handleSubmit={e => submitLogin(e)} text="Login"/>
 
       </form>
-      </>
+      </div>
+      </main>
     )
 }

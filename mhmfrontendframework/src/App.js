@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import Stressometer from "./components/Stressometer";
 import About from "./components/About";
-import Contact from "./components/Contact";
 import View from "./components/View";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/Signup";
@@ -29,8 +29,8 @@ function App() {
         <div className="max-w-md w-full space-y-8">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/stressometer" element={<Stressometer />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
 
             <Route path="/login" element={<LoginPage />} />
 
