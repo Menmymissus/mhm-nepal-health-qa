@@ -13,9 +13,9 @@ export default function Input({
     customClass
 }){
     return(
-        <div className="my-5">
+        <div className="my-5 opacity-5">
             <label htmlFor={labelFor} className="sr-only">
-              {labelText}
+             {labelText}
             </label>
             <input
               onChange={handleChange}
@@ -26,6 +26,8 @@ export default function Input({
               required={isRequired}
               className={fixedInputClass+customClass}
               placeholder={placeholder}
+              
+              
             />
           </div>
     )

@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import background from '../assets/background.png';
 
 const Dashboard = () => {
   const[generatedTexts, setGeneratedTexts]=useState([]);
@@ -39,9 +40,9 @@ const Dashboard = () => {
 
 
   return (
-    <main className=' absolute top-0 left-0 h-full w-full font-spaceGrotesk space-x-4 bg-orange-100 '>
+    <main className=' absolute top-0 left-0 h-full w-full font-spaceGrotesk space-x-4 bg-cover text-slate-300' style={{backgroundImage:`url(${background})`}}>
     <div className='flex mt-20 space-x-4 mx-4'>
-    <div className='w-[50%] space border-black border-2 rounded-md' style={{ maxHeight: '650px', overflowY: 'auto' }}>
+    <div className='w-[50%] space border-slate-300 border-2 rounded-md' style={{ maxHeight: '650px', overflowY: 'auto' }}>
       <h1 className='text-2xl font-bold font-spaceGrotesk text-center'>History</h1>
       {generatedTexts.map((generatedText, index) => (
         <div className='border-black border-b-2' key={index}>
@@ -52,11 +53,11 @@ const Dashboard = () => {
         </div>
       ))}
     </div>
-    <div className='flex flex-col space-y-4'>
-    <div className='h-[40vh] w-[50vw] bg-red-100  border-black border-2 rounded-md flex justify-center items-center'>
+    <div className='flex flex-col space-y-4 '>
+    <div className='h-[40vh] w-[50vw] bg-red-100 opacity-10  border-slate-300 border-2 rounded-md flex justify-center items-center'>
       Placeholder
     </div>
-    <div className=' h-[40vh] w-[50vw] bg-slate-100 border-black border-2 rounded-md flex justify-center items-center'>
+    <div className=' h-[40vh] w-[50vw]  opacity-10 border-slate-300 border-2 rounded-md flex justify-center items-center'>
       Placeholder
     </div></div>
     </div>

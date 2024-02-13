@@ -12,6 +12,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import background from '../assets/background.png';
 
 
 
@@ -43,7 +44,7 @@ const View = () => {
 
     return (
       <>
-        <div className="absolute top-0 left-0 h-full w-full bg-orange-100 flex flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 h-full w-full bg-orange-100 flex flex-col items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
         
             <textarea className="peer h-[200] min-h-[100px] w-[50%] resize-none rounded-[7px] border bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline transition-all focus:border-2 focus:border-gray-900  focus:outline-0 disabled:resize-none"
       placeholder=" " value={inputText} onChange={(e) => setInputText(e.target.value)} />
