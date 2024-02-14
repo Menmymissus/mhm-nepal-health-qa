@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./Stressometer.css";
 import { useState } from "react";
-import { getCSRFToken } from "./authUtils";
+import { getCSRFToken, getSession } from "./authUtils";
 
 
 import img1 from "../StressImages/anxietylevel.png";
@@ -87,7 +87,7 @@ const Stressometer = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
   const getAuthToken = () =>{
-    return localStorage.getItem('token');
+    return localStorage.getItem('authSession');
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -97,7 +97,6 @@ const Stressometer = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            "Authorization":`Token ${getAuthToken()}`,
             'X-CSRFToken': getCSRFToken(),
         }
       }
