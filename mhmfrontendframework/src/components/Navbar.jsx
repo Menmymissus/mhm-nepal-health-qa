@@ -33,7 +33,16 @@ function handleClick(){
     <div className='mt-5 mr-7 hidden md:block ease-in-out'>
       <h1 className='absolute text-4xl flex mt-[-8px] font-bold font-spaceGrotesk ml-3'>MHM</h1>
       <ul className='flex justify-end space-x-4 font-spaceGrotesk md:space-x-7 mr-10 '>
-        <Link to="/" className='hover:drop-shadow-glow'>Home</Link>
+        {userLoggedIn ? (
+          <Link to="/user/dashboard" className='hover:drop-shadow-glow'>
+            Home
+          </Link>
+        ) : (
+          <Link to="/" className='hover:drop-shadow-glow'>
+            Home
+          </Link>
+        )}
+
         <Link to="/user/view" className='hover:drop-shadow-glow'>View</Link>
         <Link to="/stressometer" className='hover:drop-shadow-glow'>Stressometer</Link>
         <Link to="/about" className='hover:drop-shadow-glow'>About us</Link>

@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import background from '../assets/background.png';
+import {Link} from 'react-router-dom';
+
 
 const Dashboard = () => {
   const[generatedTexts, setGeneratedTexts]=useState([]);
@@ -54,12 +56,21 @@ const Dashboard = () => {
       ))}
     </div>
     <div className='flex flex-col space-y-4 '>
-    <div className='h-[40vh] w-[50vw] bg-red-100 opacity-10  border-slate-300 border-2 rounded-md flex justify-center items-center'>
-      Placeholder
+    <div className='h-[40vh] w-[50vw] border-slate-300 border-2 rounded-md flex justify-center items-center'style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}>
+      Graph or some shit goes here.
     </div>
-    <div className=' h-[40vh] w-[50vw]  opacity-10 border-slate-300 border-2 rounded-md flex justify-center items-center'>
-      Placeholder
-    </div></div>
+    <div className=' h-[40vh] w-[50vw]   border-slate-300 flex flex-col justify-center items-center'>
+      Click here to check your stresslevel
+      <div className='flex flex-row space-x-5'>
+    <Link to="/stressometer">
+          <button className="bg-blue-300 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full mt-5 justify-center">Stressometer</button>
+        </Link>
+        <Link to="/user/view">
+          <button className="bg-blue-300 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full mt-5 justify-center">QAbot</button>
+        </Link>
+        </div>
+    </div>
+    </div>
     </div>
     </main>
   )
