@@ -1,5 +1,11 @@
-// authUtils.js
+// yo stressometer ko lagi gareko hai bharat solti
+import Cookies from 'js-cookie';
 const SESSION_KEY = 'authSession';
+
+export const getCSRFToken = () => {
+  return Cookies.get('csrftoken');
+};
+//yaha samma
 
 export const setSession = (sessionData) => {
   localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
@@ -19,3 +25,6 @@ export const isLoggedIn = () => {
   const sessionData = getSession();
   return !!sessionData;
 };
+
+
+
