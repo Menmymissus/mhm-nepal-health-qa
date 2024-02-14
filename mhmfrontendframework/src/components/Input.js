@@ -13,7 +13,7 @@ export default function Input({
     customClass
 }){
     return(
-        <div className="my-5 opacity-5">
+        <div className="my-5" style={{backgroundColor:'rgba(0, 0, 0, 0)'}}>
             <label htmlFor={labelFor} className="sr-only">
              {labelText}
             </label>

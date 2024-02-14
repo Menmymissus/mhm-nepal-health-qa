@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Stressometer.css";
 import { useState } from "react";
 import { getCSRFToken, getSession } from "./authUtils";
+import background from '../assets/background.png';
 
 
 import img1 from "../StressImages/anxietylevel.png";
@@ -805,52 +806,11 @@ const Stressometer = () => {
     }
   };
 
-  // return (
-  //   <div>
-  //     <form onSubmit={handleSubmit} className="step-form">
-  //       {renderFormStep()}
-  //       <div>
-  //         {currentStep > 1 && (
-  //           <button
-  //             type="button"
-  //             onClick={handlePrevious}
-  //             className="btn btn-secondary"
-  //           >
-  //             Previous
-  //           </button>
-  //         )}
-  //         {currentStep < totalSteps && (
-  //           <button
-  //             type="button"
-  //             onClick={handleNext}
-  //             className="btn btn-primary"
-  //           >
-  //             Next
-  //           </button>
-  //         )}
-  //         {currentStep === totalSteps && (
-  //           <button type="submit" className="btn btn-primary">
-  //             Submit
-  //           </button>
-  //         )}
-  //       </div>
-  //     </form>
-  //     {/* {result && <div className="prediction-result">Result: {result.result}</div>} */}
-  //     {result && (
-  //       <div className="prediction-result">
-  //         Your stres level is:{" "}
-  //         {result.result === 0
-  //           ? "Acute Stress"
-  //           : result.result === 1
-  //           ? "Episodic Acute Stress"
-  //           : "Chronic Stress"}
-  //       </div>
-  //     )}
-  //   </div>
-  // );
+
   return (
-    <div className="form-container">
-      <div className="form-card">
+    <main className="absolute top-0 left-0 h-screen w-full flex items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
+    <div className="font-spaceGrotesk border-slate-600 border-2 rounded-xl">
+      <div className="font-spaceGrotesk">
         <form onSubmit={handleSubmit} className="step-form">
           <div className="form-group">
             {renderFormStep()}
@@ -885,6 +845,7 @@ const Stressometer = () => {
         )}
       </div>
     </div>
+    </main>
   );
 
 
