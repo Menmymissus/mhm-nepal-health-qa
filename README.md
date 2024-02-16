@@ -1,1 +1,3 @@
-# mhm-nepal-health-qa
+#MHM-Nepal_Health_QA
+
+#Steps for installation
