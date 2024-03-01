@@ -1,0 +1,66 @@
+.footer-container {
+    display: flex;
+    background-color: #111;
+    padding: 35px;
+
+}
+.site-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.details {
+    display: flex;
+}
+.f-heading {
+    font-family: 'Roboto';
+    font-size: 33px;
+    font-weight: 600;
+    color: #eee;
+
+}
+.f-details, .copyright-text {
+    font-family: 'Roboto';
+    color: rgba(255, 255, 255, .6);
+    font-size: 19px;
+    line-height: 1.6rem;
+    width: 50%;
+}
+.copyright {
+    margin-top: 15px;
+}
+.copyright-text {
+    font-size: 14px;
+
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    width: 100%;
+    align-self: center;
+    color: white;
+}
+.social-links > a {
+    font-size: 40px;
+}
+.f-top {
+    display: flex;
+    
+}
+.f-nav-list {
+    color: white;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+.f-nav {
+    width: 100%;
+}
+.f-nav-list > li {
+    color: #eee;
+    font-size: 20px;
+}

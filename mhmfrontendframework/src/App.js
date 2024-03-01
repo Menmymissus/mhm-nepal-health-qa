@@ -11,6 +11,8 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Logout from "./components/Logout";
+import HeroSection from "./components/HeroSection";
+import Navbarb from './components/Navbar-b'
 
 
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -24,13 +26,13 @@ const client = axios.create({
 function App() {
   return (
     <div className="App">
+      
       <Navbar />
-      <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
+     
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/stressometer" element={<Stressometer />} />
+            <Route path="/" element={<HeroSection />} />
             <Route path="/about" element={<About />} />
+            {/* <Route path="/s" element={<HeroSection />} /> */}
 
             <Route path="/login" element={<LoginPage />} />
 
@@ -40,13 +42,14 @@ function App() {
 
                     <Route path="view" element={<View />} />
                     <Route path="dashboard" element={<Dashboard/>} />
+                    <Route path="stressometer" element={<Stressometer />} />
+
                     <Route path="logout" element={<Logout />} />
 
             </Route>
           </Routes>
         </div>
-      </div>
-    </div>
+    
   );
 }
 
