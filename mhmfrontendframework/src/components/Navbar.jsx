@@ -61,7 +61,20 @@ const Navbar = () => {
             
             <>
             {location.pathname === '/login' || location.pathname === '/signup'? "": 
-            <><ScrollLink activeClass="border-b-2 border-cyan-400" smooth spy offset={-60} to='home' className="hover:drop-shadow-glow hover:border-b-2 border-white-400 cursor-pointer	">
+            <>
+            {location.pathname === '/about'?
+         <>
+         <Link to="/" className="hover:drop-shadow-glow hover:border-b-2 border-white-400">
+          Home
+        </Link>
+        <Link to="/" className="hover:drop-shadow-glow hover:border-b-2 border-white-400">
+          Services
+        </Link>
+        <Link to="/about" className="active hover:drop-shadow-glow hover:border-b-2 border-white-400">
+          About us
+        </Link></>: 
+        <>
+        <ScrollLink activeClass="border-b-2 border-cyan-400" smooth spy offset={-60} to='home' className="hover:drop-shadow-glow hover:border-b-2 border-white-400 cursor-pointer	">
             Home
           </ScrollLink>
           <ScrollLink activeClass="border-b-2 border-cyan-400" smooth spy offset={-60} to='services' className="hover:drop-shadow-glow hover:border-b-2 border-white-400 cursor-pointer	">
@@ -69,7 +82,15 @@ const Navbar = () => {
       </ScrollLink>
         <Link to="/about" className="hover:drop-shadow-glow hover:border-b-2 border-white-400">
           About us
-        </Link>
+        </Link></>}
+
+            
+            
+
+
+         {/* this navbar code is in life support. please don't change anything  :(*/}
+         
+        
         </>
             }
             

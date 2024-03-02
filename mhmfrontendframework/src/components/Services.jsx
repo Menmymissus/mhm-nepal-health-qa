@@ -87,7 +87,7 @@ function Sevices() {
                 once: true,
                 margin: "-200px",
               }}
-              custom={100}
+              custom={80}
               className="info-text-one-image w-1/2">
                   <img src={Chatbot} className='service-img' alt="service one" />
               </motion.div>
@@ -112,7 +112,7 @@ function Sevices() {
             margin: "-200px",
             
         }}
-          custom={-100}
+          custom={-80}
           className="info-text-one-image w-1/2">
                   <img src={Stress} className='service-img' alt="service one" />
               </motion.div>
@@ -211,7 +211,7 @@ function Sevices() {
                 margin: "-200px",
 
                }}
-               custom={100}
+               custom={80}
                className="info-text-one-image w-1/2">
                   <img src={Meditation} className='service-img' alt="service one" />
               </motion.div>
