@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import Logo from '../assets/mhm_logo.png'
+import Logo2 from '../assets/mhm-logo-round.png'
 
 
 export default function Header({
@@ -15,7 +16,7 @@ export default function Header({
                 <img 
                     alt=""
                     className="h-18 w-20"
-                    src={Logo}/>
+                    src={Logo2}/>
             </div>
             <h2 className="mt-6 text-center text-3xl  text-slate-300">
                 {heading}

@@ -144,7 +144,7 @@ const Stressometer = () => {
                 target="_blank"
                 style={{ color: "yellow" }}
               >
-                Here
+                 Here
               </a>
               .
             </p>
@@ -809,7 +809,7 @@ const Stressometer = () => {
 
   return (
     <main className="absolute top-0 left-0 h-screen w-full flex items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
-    <div className="w-[90vh] font-spaceGrotesk border-slate-600 border-2 rounded-xl backdrop-blur-sm">
+    <div className="w-[90vh] font-spaceGrotesk border-slate-600 border-2 rounded-xl backdrop-blur-sm mt-10">
       <div className="font-spaceGrotesk">
         <form onSubmit={handleSubmit} className="step-form">
           <div className="form-group">
