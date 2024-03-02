@@ -116,8 +116,15 @@ const Navbar = () => {
           </button>
         )}
       </div>
+
+      <h1 className="text-4xl text-slate-300 font-bold font-spaceGrotesk ml-3 mt-[-32px]">
+          MHM
+        </h1>
+      <div className={!navActive ? "backdrop-blur-md  h-[40vh] w-[40%] mt-[-50px] border-2 border-slate-500 rounded-md text-slate-300 md:hidden transition ease-in-out" : "hidden ease-in-out"}>
+
       <div className={!navActive ? "backdrop-blur-md  h-[50vh] w-[40%] mt-[-50px] border-2 border-slate-500 rounded-md text-slate-300 md:hidden transition ease-in-out" : "hidden ease-in-out"}>
         <div>
+
       <h1 className="text-4xl text-slate-300 font-bold font-spaceGrotesk ml-3 mt-2.5">
           MHM
         </h1>
