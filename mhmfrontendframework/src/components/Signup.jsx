@@ -112,7 +112,11 @@ export default function Signup(){
           </ul>
         </div>
       )}
-  
+  <div className="text-slate-300 backdrop-blur-sm" style={{
+    "border": "1px solid #ffffff5c",
+   "background-color": "#00000024",
+   "padding": "24px",
+   "margin-top": "10px"}}>
       <Header
               heading="Signup to create an account"
               paragraph="Already have an account? "
@@ -145,6 +149,7 @@ export default function Signup(){
          
 
       </form>
+      </div>
       </main>
     )
 }

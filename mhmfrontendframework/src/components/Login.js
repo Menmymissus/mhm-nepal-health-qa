@@ -132,7 +132,7 @@ export default function Login(){
     }
     
     return(
-      <main className="absolute top-0 left-0 h-screen w-screen bg-cover flex items-center justify-center flex-col" style={{backgroundImage:`url(${background})`}}>
+      <main id="login" className="absolute top-0 left-0 h-screen w-screen bg-cover flex items-center justify-center flex-col" style={{backgroundImage:`url(${background})`}}>
       {/* {successMsgFlag > 0 && (
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
         <span class="font-medium">Success!</span> Your account has been created. Please log in to continue!
@@ -152,7 +152,9 @@ export default function Login(){
           </ul>
         </div>
       )}
-      <div className=" text-slate-300">
+      <div className="text-slate-300 backdrop-blur-sm" style={{
+    "border": "1px solid #ffffff5c",
+   " background-color": "#00000024",    "padding": "24px"}}>
           <Header
                 heading="Login to your account"
                 paragraph="Don't have an account yet? "

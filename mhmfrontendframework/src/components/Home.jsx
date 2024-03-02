@@ -3,6 +3,8 @@ import {useTypingEffect} from "./customhooks/typingeffect";
 import { Link } from "react-router-dom";
 import background from '../assets/background.png';
 import Typewriter from 'typewriter-effect';
+import Services from './Services'
+import Footer from './Footer'
 
 const Home = () => {
 
@@ -10,7 +12,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="absolute top-0 left-0 h-screen w-full flex items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
+      <main id="home" className="absolute top-0 left-0 h-screen w-full flex items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
         <div className="flex-row">
           <div className=" flex items-center justify-center font-bold font-spaceGrotesk text-xl">
             Welcome to MHM
