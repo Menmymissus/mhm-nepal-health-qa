@@ -68,13 +68,15 @@ const View = () => {
         <div className="absolute top-0 left-0 h-full w-full bg-orange-100 flex flex-col items-center justify-center bg-cover text-slate-300" style={{backgroundImage:`url(${background})`}}>
         
             <textarea id="input" className="peer h-[200] min-h-[100px] w-[50%] resize-none rounded-[7px] border bg-transparent px-3 py-2.5 font-sans text-md font-normal text-blue-gray-700 outline transition-all focus:border-2 focus:border-white-900  focus:outline-0 disabled:resize-none"
-      placeholder=" " ref={inputRef} onKeyDown={handleKeyDown} />
+      placeholder=" " ref={inputRef} onKeyDown={handleKeyDown} onChange={(e) => setInputText(e.target.value)}/>
             <button className='mt-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded' onClick={generateText}>Ask Question</button>
             {loading && <Spinner />}
-            <div className='mt-5' style={{"width":"80%"}}>
+            <div className='mt-5' style={{"width":"50%"}}>
                 <strong>Answer:</strong>
+
                 {console.log(generatedText)}
                 {generatedText && <Typewriter
+                  key={generatedText}
                     options={{
                       delay: 70,
                     }}

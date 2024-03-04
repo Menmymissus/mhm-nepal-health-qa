@@ -11,6 +11,7 @@ def generate_text(request):
     user_email = request.GET.get('email')
     user = AppUser.objects.get(email=user_email)
     input_text = request.GET.get('input_text','')
+    print(input_text)
     pipe = pipeline("text2text-generation", model="Chhabi/mt5-small-finetuned-Nepali-Health-50k-2", max_new_tokens=128)
     result = pipe(input_text)
     generated_text = result[0]['generated_text']
