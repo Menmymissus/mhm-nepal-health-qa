@@ -62,6 +62,8 @@ const View = () => {
           setLoading(false);
         }
     };
+    let arrayGenText = generatedText.split("-")
+    const resultString = arrayGenText.join('<br /> -');
 
     return (
       <>
@@ -73,15 +75,16 @@ const View = () => {
             {loading && <Spinner />}
             <div className='mt-5' style={{"width":"50%"}}>
                 <strong>Answer:</strong>
-
+                
                 {console.log(generatedText)}
+                {console.log("Joined string ", resultString)}
                 {generatedText && <Typewriter
                   key={generatedText}
                     options={{
                       delay: 70,
                     }}
                     onInit={(typewriter) => {
-                    typewriter.typeString(generatedText)
+                    typewriter.typeString(resultString)
                         .callFunction(() => {
                           console.log('String typed out!');
                         })
