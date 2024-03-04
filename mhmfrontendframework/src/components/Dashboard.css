@@ -1,0 +1,26 @@
+.animated-text {
+    animation: pulsate 5s ease-in-out infinite;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .gradient-text {
+    background-image: linear-gradient(to right, #81cfe0, #43a047);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Additional styles for better rendering across browsers */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  
